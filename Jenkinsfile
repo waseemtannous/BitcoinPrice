@@ -12,8 +12,11 @@ pipeline {
 
     stage('Push Image') {
       steps {
-        sh 'docker tag bitcoin-price waseemtannous/bitcoin-price:latest'
-        sh 'docker push waseemtannous/bitcoin-price:latest'
+        withCredentials([string(credentialsId: 'DockerSecret', variable: 'TOKEN')]) {
+            sh 'docker login -u waseemtannous -p ${TOKEN}'
+            sh 'docker tag bitcoin-price waseemtannous/bitcoin-price:latest'
+            sh 'docker push waseemtannous/bitcoin-price:latest'
+        }
       }
     }
   }
