@@ -5,13 +5,14 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh 'whoami'
         sh 'docker build -t bitcoin-price .'
       }
     }
 
     stage('Push Image') {
       steps {
+
+        // use the docker token saved in the jenkins credentials to login
         withCredentials([string(credentialsId: 'DockerSecret', variable: 'TOKEN')]) {
             sh 'docker login -u waseemtannous -p ${TOKEN}'
             sh 'docker tag bitcoin-price waseemtannous/bitcoin-price:latest'
