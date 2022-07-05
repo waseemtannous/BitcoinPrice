@@ -5,6 +5,7 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
+        sh 'whoami'
         sh 'docker build -t bitcoin-price .'
       }
     }
