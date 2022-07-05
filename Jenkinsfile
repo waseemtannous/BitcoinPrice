@@ -5,14 +5,14 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh 'docker build -t bitcoin-price .'
+        sh 'sudo docker build -t bitcoin-price .'
       }
     }
 
     stage('Push Image') {
       steps {
-        sh 'docker tag bitcoin-price waseemtannous/bitcoin-price:latest'
-        sh 'docker push waseemtannous/bitcoin-price:latest'
+        sh 'sudo docker tag bitcoin-price waseemtannous/bitcoin-price:latest'
+        sh 'sudo docker push waseemtannous/bitcoin-price:latest'
       }
     }
   }
