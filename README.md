@@ -43,13 +43,6 @@ Also, created a token from Docker to push the image to Docker Hub and set the to
 
 After that, Jenkins will notify when the build and push is done using Slack.
 
-## Kubenetes
-
-```sh
-cd BitcoinPrice
-minikube start
-kubectl create -f pod.yaml
-```
 
 ## Kubernetes (minikube)
 
