@@ -50,6 +50,7 @@ To deploy the application locally to minikube, run the following commands:
 
 ```sh
 git clone https://github.com/waseemtannous/BitcoinPrice.git
+cd BitcoinPrice
 minikube start
 kubectl apply -f k8sDeployment.yaml
 minikube tunnel
